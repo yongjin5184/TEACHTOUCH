@@ -1,0 +1,13 @@
+#general_editor {
+    width:380px;
+    height:250px;
+    border:1px dotted #afa;
+}
+.general_editor_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.general_editor_menu li {
+    display: inline;
+}
