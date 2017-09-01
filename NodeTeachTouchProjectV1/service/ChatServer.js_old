@@ -1,0 +1,155 @@
+/**
+ * Chat Server Source
+ */
+io.sockets.on('connection',function(socket){
+	
+	socket.on('roommake',function(data){
+		
+		socket.join(data.roomname);
+		socket.set('room',data.roomname);
+		console.log("wwwwwwwwwwwwwww : " +JSON.stringify(io.sockets.manager.rooms));
+		///////////////////////////////////////////////////////////////////////////////////////////
+		var i=0;
+		var search_group = false; 
+		var search_room = false;
+		var isRoomMaster = 0;
+		
+		//현재 그룹내의 방이 있는 지 탐색
+		for(i=0; i<room_manage.length; i++){
+			//room_manage[i].group_num = 0;
+			if(Number(room_manage[i].group_num) == Number(data.group_num)){
+				search_group = true;
+				break;
+			}
+		}
+		if(Number(data.roommake)){
+			if(search_group) {
+				//있다면
+		
+				room_manage[i].rooms.push({'room_name':data.roomname, 'room_master':data.member_num});
+				
+				
+			} else {
+				//없다면
+				console.log("not exitst group");
+				var obj = {};
+				var arr = [];
+	
+				arr.push({'room_name':data.roomname, 'room_master':data.member_num});
+				obj.group_num = data.group_num;
+				obj.rooms = arr;
+				room_manage.push(obj);
+			}
+		}
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		
+		var group_room = []; //현재 client가 있는 group의 room 리스트들
+		var room_manage_obj = io.sockets.manager.rooms; 
+		var grouop_room_manage_obj = {}; // 해당 그룹의 방정보
+		
+		for(var i=0; i<room_manage.length; i++){
+			if(Number(room_manage[i].group_num) == Number(data.group_num)){
+				group_room = room_manage[i].rooms;
+			}
+		}
+		
+		//해당 그룹의 방정보만을 따로 빼기
+		console.log('sss   ' +  JSON.stringify(io.sockets.manager.rooms));
+		//grouop_room_manage_obj[''] = room_manage_obj[''];
+		for(var i=0; i<group_room.length; i++){
+			var room = group_room[i];
+			console.log("room : "+room)
+			for(var key in room_manage_obj){
+				if(room.room_name == key.split("/").join("")){
+					var obj_key = '/'+room.room_name;
+					grouop_room_manage_obj[obj_key] = room_manage_obj[key];
+					break;
+				}
+			}
+		}
+		console.log("room : " + JSON.stringify(room_manage));
+		
+		// 내가 입장한 방에 대한 권한 설정
+	/*	for(var i=0; i<room_manage.length; i++){
+			for(var j=0; j<room_manage[i].rooms.length; j++){
+				//현재 내가 있는 방에서 내가 룸마스터와 같은 멤버라면 권한 부여
+				if((room_manage[i].rooms[j].room_name === data.roomname) && 
+						(Number(room_manage[i].rooms[j].room_master) == Number(data.member_num))){
+					isRoomMaster = 1;
+				}
+			}
+		}*/
+		
+		//방 목록 전송
+		var connection =  connDB();
+		
+		connection.connect();
+		connection.query('SELECT mb_name FROM rtes_member WHERE mb_no='+data.member_num, function(err, results, fields){
+			console.log("myname : "   + results[0].mb_name);
+			socket.set('member_name', results[0].mb_name);
+			socket.get("member_name", function(err, member_name){
+				console.log("i get name : " + member_name);
+				io.sockets.emit('roomlist',{"roomdata":grouop_room_manage_obj,"clientid":socket.id,"member_name":member_name,"isRoomMaster":isRoomMaster});
+				socket.get("room",function(err,room){
+					io.sockets.in(room).emit('intro', member_name);
+			
+				});
+			});
+		
+			
+		});
+		connection.end();
+	});
+	
+	//message 처리
+	socket.on('message',function(data){
+		socket.get("member_name", function(err, member_name){
+			socket.get('room',function(err,room){
+				io.sockets.in(room).emit('message_send',{'msg':data.msg,'from':member_name});
+			});
+		});
+	});
+	
+	socket.on('disconnect', function () {
+		var data = io.sockets.manager.rooms;
+		var deleted_room_name = '';
+	
+		//방 목록 전송
+		
+		socket.get('room',function(err,room){
+			console.log(JSON.stringify(io.sockets.manager.rooms));
+			//delete
+			//없어지는 방이라면...
+			for(var key in data) {
+				if(key.split("/").join("") === room){
+					if(data[key].length <= 1){
+						deleted_room_name = room;
+					}
+				}
+			}
+			
+			//없어지는 room에 대한 room_manage에서 room정보 제거
+			for(var i=0; i<room_manage.length; i++){
+				for(var j=0; j<room_manage[i].rooms.length; j++){
+					if(room_manage[i].rooms[j].room_name === deleted_room_name){
+						room_manage[i].rooms.splice(j,1);
+					}
+				}
+				
+				//현재 그룹내의 방이 모두 없다면 그룹의 room객체 제거
+				if(room_manage[i].rooms.length == 0){
+					room_manage.splice(i,1);
+					break;
+				}
+			}
+			socket.get("member_name", function(err, member_name){
+				io.sockets.in(room).emit('message_send_disconnect',{'msg':'','from':member_name});
+			});
+		});
+	});
+	io.sockets.emit('room_research',null);
+		
+});
+

@@ -1,0 +1,12 @@
+#search_window div {width:150px; height:150px; border: blue solid 1px;overflow: scroll; }
+#searchbar ul	{list-style:none; padding:0; margin:0;}
+#searchbar ul li	{list-style:none; border-bottom:1px solid #000;}
+#searchbar ul li:hover	{background-color:#e5e5e5;}
+.clear {
+    clear: both;
+}
+#english_editor {
+    width:380px;
+    height:250px;
+    border:1px dotted #afa;
+}

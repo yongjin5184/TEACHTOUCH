@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+<script src="js/jquery.js"></script>
+
+</head>
+<body>
+<h1>General editor</h1>
+<div id="general_editor" contenteditable="true"></div>
+<ul class="general_editor_menu">
+  <li><a id="upload_file" href="#"><img src="images/fileupload.png" /></a></li>
+  <li><a id="upload_camera" href="#"><img src="images/camera.png" /></a></li>
+  <li><a id="upload_image" href="#"><img src="images/imageupload.png" /></a></li>
+  <li><a href="#"><img src="images/mathEditor.png" /></a></li>
+  <li><a href="#"><img src="images/englishEditor.png" /></a></li>
+</ul>
+<form id="upload" action="/upload" method="post" enctype="multipart/form-data">
+    <!-- <input type="file" name="uploadFile"> -->
+    <!-- <input type="file" name="uploadFile" accept="image/*;capture=camera"/> -->
+    <input type="submit" name="Upload" />
+</form>
+<script>
+	$('#upload').hide();
+	 $('#upload_camera').bind('click', function(){
+		$('#upload').append('<input id="input_camera" type="file" name="uploadFile" accept="image/*;capture=camera"/>');
+		//alert('1');
+		$( "#input_camera" ).trigger( "click" );
+		//alert('2');
+		
+	}); 
+	
+</script>
+</body>
+</html>
