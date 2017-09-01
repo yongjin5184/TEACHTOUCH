@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.edu.hansung.dao.NoteDAO">
+	<resultMap type='NoteVO' id='NoteResult'>
+		<id property='noteNo' column='note_no' />
+		<id property='mbNo' column='mb_no'/>
+		<id property='queryReqNo' column='query_req_no'/>
+		<result property='noteTitle' column='note_title'/>
+		<result property='noteContent' column='note_content'/>
+		<result property='noteSubject' column='note_subject'/>
+		<result property='noteLesson' column='note_lesson'/>
+		<result property='noteImportance' column='note_importance'/>
+		<result property='noteFavorite' column='note_favorite'/>
+		<result property='noteNotKnown' column='note_not_known'/>
+		<result property='noteKeyPoint' column='note_key_point'/>
+		<result property='noteTip' column='note_tip'/>
+		<result property='noteDate' column='note_date'/>
+	</resultMap>
+	<insert id="insertNoteVO" parameterType='NoteVO'>
+		insert into rtes_note
+		(mb_no,note_title,note_subject,note_lesson,note_importance,note_favorite,note_not_known,note_key_point,note_tip,note_date) 
+		values(#{mbNo},#{noteTitle},#{noteSubject},#{noteLesson},#{noteImportance},#{noteFavorite},#{noteNotKnown},#{noteKeyPoint},#{noteTip},#{noteDate})
+	</insert>
+	<select id="selectNoteVO" resultMap="NoteResult" parameterType="NoteVO">
+		SELECT * FROM rtes_note where mb_no = #{mbNo} and note_subject = #{noteSubject}
+	</select>
+	
+	<delete id='deleteNoteVO' parameterType='NoteVO'>
+		delete from rtes_note  
+		where
+		note_no=#{noteNo}
+	</delete>
+</mapper>

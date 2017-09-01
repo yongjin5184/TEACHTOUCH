@@ -1,0 +1,36 @@
+#chatroom {
+	display:relative;
+	width:60em;
+	height:33em;
+}
+
+#cv {
+	background-image:url('../images/blackboard.jpg');
+	background-color:black;
+}
+
+#chat textarea,
+#chat input{
+	width:15em;
+}
+
+#chat textarea {
+	height:29.5em;
+}
+
+#chat input {
+	padding:0.2em;
+}
+
+.menu fieldset {
+	display:inline-block;
+	width:15em;
+}
+
+#pen_shape{
+	position:absolute;
+	top:6.5em;
+	left:46em;
+	height:3em;
+	color:white;
+}

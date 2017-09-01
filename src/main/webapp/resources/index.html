@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Real Time Education Systems</title>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"/>
+	<meta charset="utf-8"/>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
+	<script type="text/javascript" src="js/jquery.raty.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+
+	<script type="text/javascript" src="js/desktop.js"></script>
+	<script type="text/javascript" src="js/mobile.js"></script>
+	
+	
+    <script type="text/javascript"src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type='text/javascript' src='http://malsup.github.com/jquery.form.js'></script>
+
+	<!-- editor -->
+    <script type="text/javascript" src="js/general_index.js"></script>
+    <script type="text/javascript" src="js/math_index.js"></script>
+    <script type="text/javascript"src="js/eng_index.js"></script>
+    
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/desktop.css"/>
+	<link rel="stylesheet" href="css/mobile.css"/>
+	<link rel="stylesheet" type="text/css" href="css/gen_index.css">
+	<link rel="stylesheet" type="text/css" href="css/eng_index.css">
+	<link rel="stylesheet" type="text/css" href="css/answer_editor.css">
+	<link rel="stylesheet" href="js/jquery.raty.css"/>
+    <link rel="stylesheet" type="text/css" href="css/math_mathquill.css">
+    <link rel="stylesheet" type="text/css" href="css/math_index.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" >
+	<script src="js/bootstrap.min.js"></script>
+		
+	<!-- Javascript -->
+	<script src="js/objectStorage.js"></script>
+	<script src="js/validation.js"></script>
+	
+	<!-- Node -->
+	<script src="../resources/node/index.js"></script>
+	<script src="js/main.js"></script>
+	
+	<!-- Chat -->
+	<script type="text/javascript" src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="js/board.js"></script> 
+	<script type="text/javascript" src="js/chat.js"></script>
+</head>
+
+<body>
+
+<!-- 데스크톱 -->
+<div id="desktop">
+	d
+</div>
+
+<!-- 모바일 -->
+<div id="mobile">
+
+<!-- 로그인 페이지 -->
+<div id="login" class="page">
+	<table id="login_wrapper" border="0">
+		<tr>
+			<td>
+				<div style="margin:0 auto; width:240px">
+					<img src="img/TeachTouch.png" style="width:100%;"><br><br>
+					<input type="text" class="form-control" id="login_id" placeholder="아이디" style="width:16em; margin-left:0.5em;"/><br>
+					<input type="password" class="form-control" id="login_password" placeholder="비밀번호" style="width:16em; margin-left:0.5em;"/><br>
+					<button id="login_button" class="btn btn-default" style="background-color:rgb(13, 217, 200); color:white;">로그인</button><br><br>
+					<button id="register_button" class="btn btn-default" style="background-color:rgb(222, 219, 4); color:white;">회원가입</button>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- 회원가입폼 여기여기-->
+<div id="register" class="page none">
+	<div id="register_contents"><br>
+		<img border="0" src="img/register_title.png" width="240">
+		<div class="modal-body">
+			<div id="check_in">
+			<fieldset id="checkIn_fieldset" style="margin:0 auto; width:240px;">
+				<div id="checkIn_name_div">
+					<input type='text' id='checkIn_name' name='checkIn_name' class="form-control" placeholder="이름"/>
+				</div>
+				<div id="checkIn_id_div">
+					<input type='text' id='checkIn_id' name='checkIn_id' class="form-control" placeholder="아이디"/>
+				</div>
+				<div id="checkIn_pass_div" >
+					<input type='password' id='checkIn_pass' name='checkIn_pass' class="form-control" placeholder="비밀번호"/>
+				</div>
+
+				<div id="checkIn_email_div" >
+					<input type='text' id='checkIn_email' name='checkIn_email' class="form-control" placeholder="이메일"/>
+				</div>
+
+				<div id="checkIn_addr_div" >
+					<input type='text' id='checkIn_addr' name='checkIn_addr' class="form-control" placeholder="주소"/>
+				</div>
+			<div id="checkIn_phoneNum_div">
+					<input type="text" id="checkIn_phoneNum_first" name="checkIn_phoneNum_first" class="form-control" placeholder="전화번호"/>
+			</div>
+		
+			<div id="checkIn_gender_div" >	
+				<select id= "checkIn_gender" name = "hugeGender" class="select-block btn btn-default" style="width:240px; height:30px;">
+					<option>성별 선택</option>
+					<option value="M">남자</option>
+					<option value="F">여자</option>
+				</select>
+			</div>
+			<div id="checkIn_job_div" >	
+				<select id= "checkIn_job" name = "hugeJob" class="select-block btn btn-default" style="width:240px; height:30px;">
+					<option>직업 선택</option>
+					<option value="S">학생</option>
+					<option value="T">선생님</option>
+				</select>
+			</div>
+
+			<div id="checkIn_buttons_div">
+				<button class="btn btn-default" type='submit' id='checkIn_submit' style="width:115px; background-color:rgb(13, 217, 200); color:white;">
+					등록
+				</button>&nbsp;
+				<button class="btn btn-default" type='submit' id='checkIn_cancle' style="width:115px;background-color:rgb(222, 219, 4); color:white;">
+					취소
+				</button>
+			</div>
+		</fieldset>
+		</div>	
+								
+		</div>
+	</div>
+</div>
+
+<!-- 메인 페이지 -->
+<div id="main" class="page">
+	<div id="main_logo">
+		<img border="0" src="img/TeachTouch.png">
+		<span id="main_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+	<div id="main_tab_menu">
+		<ul>
+			<li class="main_tab_on">
+				<div>
+					<div>
+						첫화면
+					</div>
+				</div>
+			</li>
+			<li class="main_tab_off">
+				<div>
+					<div>
+						내정보
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div id="div_group" style="background-color:#ffffd8;">
+		
+		<div id="div_group_list">
+
+			<table id=room_table width="100%" border="0">
+				<tr>
+					<td width="50%">
+
+						<div class="div_group_cell note">
+						</div>
+
+					</td>
+
+					<td width="50%">
+						<div class="div_group_cell add">
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+
+	<div id="div_my_page">
+		<div id="my_page" class="auto-height" style="background-color:#ffffd8;">
+		</div>
+	</div>
+</div>
+
+<!-- 방 -->
+<div id="room" class="page none">
+	<a class=moveToRoomTop href="#"><img width="20%" src="img/goToTop.png" /></a>
+	<div id="div_logo" class="row" style="background-color:#e2fdff">
+		<span class="back_to_main">
+			<img border="0" src="img/back_icon.png" style="margin-top: -1.8em;">
+		</span>
+		<img border="0" src="img/TeachTouch.png">
+		<span id="room_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+
+	<div id="room_tab_menu" class="master">
+		<ul>
+			<li class="room_tab_on">
+				<div>
+					<div>
+						질문 답변
+					</div>
+				</div>
+			</li>
+			<li class="room_tab_off">
+				<div>
+					<div>
+						질문하기
+					</div>
+				</div>
+			</li>
+			<li class="room_tab_off">
+				<div>
+					<div>
+						강의방
+					</div>
+				</div>
+			</li>
+			<li class="room_tab_off">
+				<div>
+					<div>
+						내 질문
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+		
+	<div class="auto-height" id="div_qna" style="background-color:#eaf7fc;">
+		<!-- <div id="write_button">
+			질문답변
+		</div> -->
+		
+	</div>
+	<div class="auto-height" id="div_q" style="background-color:#eaf7fc;">
+		<!-- 질문올리기 -->
+		
+	</div>
+	<div class="auto-height" id="div_ppt" style="background-color:#eaf7fc;">
+		<!-- 강의방 -->
+		<fieldset id = "roommake">
+			<legend>방만들기</legend>
+			방이름 : <input id = "roomname" type="text" value ><br>
+			<!-- 닉네임 : <input id = "nickname" type="text" value ><br> -->
+			<input id = "room_make" type = "button" value = "방만들기">
+		</fieldset>
+		
+		<fieldset id = "teachroom" >
+			<legend>개설된 방목록 </legend>
+			<div id = "roomlist"></div>
+		</fieldset>
+		
+		<div id = "chatroom">
+			<button id="exit_teachroom"> 나가기 </button>
+			<canvas id = 'cv' style="width:330px; height:205px; border:1px solid black; background-image:url('img/blackboard.jpg')"></canvas>
+			<fieldset >
+				<legend id="chatroom_legend"> </legend>
+				<textarea readonly></textarea>
+				<div>
+					<input type = "text" size = "50">
+				</div>
+			</fieldset>
+		</div>
+
+	</div>
+	<div class="auto-height" id="div_myq" style="background-color:#eaf7fc;">
+		<!-- 내질문 -->
+		
+	</div>
+</div>
+
+
+<!-- 답변 올리는 부분 -->
+<!-- Answer Modal -->
+<div id="answer_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close answer_register_close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">X</span></button>
+        <h4 id="answer_modal_title" class="modal-title"></h4>
+      </div>
+      <div id="answer_editor" class="modal-body">
+  		<ul class="answer_editor_header">
+			<li><input type="text" id="answer_title" class="form-control" placeholder="제목" style="width:15em;"/></li>
+			
+		</ul>
+		<div id="general_editor" contenteditable="true"></div>
+		<ul class="answer_editor_menu">
+
+		  	<li>
+				<form action="/upload" method="post" enctype="multipart/form-data" style="display:block;">
+			    	
+			    	<label for="uploadImage">
+			    		<img src="img/editor_icon/picture_editor.png" />
+			    	</label>
+			  		<input type="file" id="uploadImage" name="uploadImage" style="display:none;" accept="image/*;capture=camera"/>
+			    	
+				</form>
+			</li>
+			<li><a id="re_general_editor_btn"><img src="img/editor_icon/pencil_editor.png" /></a></li>
+		  	<li><a id="re_general_math_btn"><img src="img/editor_icon/math_editor.png" /></a></li>
+		  	<li><a id="re_general_english_btn"><img src="img/editor_icon/english_editor.png" /></a></li>
+		  	<li><a id="re_general_eraser_btn"><img src="img/editor_icon/eraser_editor.png" /></a></li>
+		</ul>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default answer_register_close">닫기</button>
+        <button id="answer_register" type="button" class="btn btn-primary">등록</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+<!-- 자세히보기 -->
+<div id="detail_question" class="page none">
+	<div id="div_logo" class="row">
+		<span class="back_to_main">
+			<img border="0" src="img/back_icon.png" style="margin-top: -1.8em;">
+		</span>
+		<img border="0" src="img/TeachTouch.png">
+		<span id="room_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+	질문 보기<br>
+	내용 : <textarea></textarea>
+</div>
+ 
+
+<!-- Detail Modal -->
+<div id="detailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close detail_close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">QnA 수정</h4>
+      </div >
+      <div id="detail_editor" class="modal-body">
+     	 <ul class="detail_editor_header">
+     	 	<li><span id="detail_qnaNumber"></span></li>
+			<li><input type="text" id="detail_title" class="form-control" readonly="true" placeholder="제목" style="width:15em;"/></li>			
+		</ul>
+      	<div id="general_editor" contenteditable="false"></div>
+      	
+		<ul class="detail_editor_menu">
+		  	<li>
+				<form action="/upload" method="post" enctype="multipart/form-data" style="display:block;">
+			    	
+			    	<label for="uploadImage">
+			    		<img src="img/editor_icon/picture_editor.png" />
+			    	</label>
+			  		<input type="file" id="files" name="uploadImage" style="display:none;" multiple />
+			    	
+				</form>
+			</li>
+			<li><a id="detail_general_editor_btn"><img src="img/editor_icon/pencil_editor.png" /></a></li>
+		  	<li><a id="detail_general_math_btn"><img src="img/editor_icon/math_editor.png" /></a></li>
+		  	<li><a id="detail_general_english_btn"><img src="img/editor_icon/english_editor.png" /></a></li>
+		  	<li><a id="detail_general_eraser_btn"><img src="img/editor_icon/eraser_editor.png" /></a></li>
+		</ul>
+      	
+      </div>
+      <div class="modal-footer">
+        <button id="detail_qna_update" type="button" class="btn btn-primary">수정</button>
+        <button id="detail_qna_save" type="button" class="btn btn-primary">저장</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+
+<div id="detail_qna" class="page none">
+	<div id="div_logo" class="row">
+		<span class="back_to_main">
+			<img border="0" src="img/back_icon.png" style="margin-top: -1.8em;">
+		</span>
+		<img border="0" src="img/TeachTouch.png">
+		<span id="room_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+	질문 답변 보기<br>
+	내용 : <textarea></textarea>
+</div>
+
+<!-- 방 만들기 여기여기 -->
+<div id="make_room" class="page none">
+	<div id="div_logo" class="row">
+		<span class="back_to_main">
+			<img border="0" src="img/back_icon.png" style="margin-top: -1.8em;">
+		</span>
+		<img border="0" src="img/TeachTouch.png">
+		<span id="room_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+	<div class="page_contents">
+		<div id="div_make_room" class="make_room">
+			<table width="100%" border="0">
+				<tr>
+					<td width="50%" style="text-align:center;">
+						<img id="add_img" src="img/chair.PNG">
+					</td>
+					<td width="50%">
+						<div id="add_detail" style="text-align:left;">
+							<select id = "gro_subject" class="form-control" style="width:10em; margin-left:-2.3em;">
+								<option selected style='display: none;'>과목명</option>
+								<option>수학</option>
+								<option>영어</option>
+							</select>
+							<br>
+							<select id="gro_grade" class="form-control" style="width:10em; margin-left:-2.3em;">
+								<option selected style='display: none;'>학년</option>
+								<option value='1'>1학년</option>
+								<option value='2'>2학년</option>
+								<option value='3'>3학년</option>
+							</select>
+							<br>
+							<input id="gro_name" type="text" class="form-control" placeholder="그룹 이름" style="width:10em; margin-left:-2.3em;"><br>
+						</div>
+					</td>
+				</tr>	
+			</table>
+			<br>
+			
+			
+			<table width="100%" border="1">
+				<tr>
+					<td width="50%">
+					<!-- 방 아이콘 선택 -->
+						<div>
+							<div id="ppt_container" class="ppt_container">
+								<span id="icon_arrow_left" class="arrow_left">
+									<img border="0" width="100%" src="img/arrow_left.png">
+								</span>
+								<span id="icon_arrow_right" class="arrow_right">
+									<img border="0" width="100%" src="img/arrow_right.png">
+								</span>
+								<div id="ppt_wrapper">
+									<ul id="ppt_slide_list" class="ppt_slide_list">
+										<li>
+											<div class="icon_select">
+												<img class="add_img" src="img/chair.PNG" width="50%">
+												<input class='room_icon' type='hidden' value='img/chk_chair.PNG'/>
+												<input class='room_icon' type='hidden' value='img/chair.PNG'/>
+											</div>
+										</li>
+										<li>
+											<div class="icon_select">
+												<img class="add_img" src="img/pen.PNG" width="50%">
+												<input class='room_icon' type='hidden' value='img/chk_pen.PNG'/>
+												<input class='room_icon' type='hidden' value='img/pen.PNG'/>
+											</div>
+										</li>
+										<li>
+											<div class="icon_select">
+												<img class="add_img" src="img/scien.PNG" width="50%">
+												<input class='room_icon' type='hidden' value='img/chk_scien.PNG'/>
+												<input class='room_icon' type='hidden' value='img/scien.PNG'/>
+											</div>
+										</li>
+										<li>
+											<div class="icon_select">
+												<img class="add_img" src="img/board.png" width="50%">
+												<input class='room_icon' type='hidden' value='img/chk_board.PNG'/>
+												<input class='room_icon' type='hidden' value='img/board.png'/>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td width="50%">
+						<!-- 방 이미지 선택 -->
+						<div>
+							<div id="ppt_container" class="ppt_container">
+								<span id="backgouund_arrow_left" class="arrow_left">
+									<img border="0" width="100%" src="img/arrow_left.png">
+								</span>
+								<span id="backgouund_arrow_right" class="arrow_right">
+									<img border="0" width="100%" src="img/arrow_right.png">
+								</span>
+								<div id="ppt_wrapper">
+									<ul id="background_slide_list" class="ppt_slide_list">
+										<li>
+											<div class="icon_select">
+												<img class="add_color" src="img/color_blue.PNG" width="50%">
+												<input class='room_color' type='hidden' value='img/chk_color_blue.PNG'/>
+												<input class='room_color' type='hidden' value='img/color_blue.PNG'/>
+												<input class='room_color' type='hidden' value='#bbe7ff'/>
+											</div>
+										</li>
+										<li>
+											<div class="icon_select">
+												<img class="add_color" src="img/color_pink.PNG" width="50%">
+												<input class='room_color' type='hidden' value='img/chk_color_pink.PNG'/>
+												<input class='room_color' type='hidden' value='img/color_pink.PNG'/>
+												<input class='room_color' type='hidden' value='#ffbbc7'/>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<button id="create_room_btn" style="margin-top:1em; width:20%;" type="submit" class="btn btn-primary">생성</button>
+			
+		</div>
+	</div>
+</div>
+
+<!-- 오답노트 -->
+<div id="note" class="page none">
+	<div id="div_logo" class="row">
+		<span class="back_to_main">
+			<img border="0" src="img/back_icon.png" style="margin-top: -1.8em;">
+		</span>
+		<img border="0" src="img/TeachTouch.png">
+		<span id="room_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+	<div class="page_contents">
+		<div id="note_list_background">
+			<table border="0">
+				<tr>
+					<td>
+						<div class="my_note" id="note_math">
+							<input type='hidden' value='수학'/>
+						</div>
+					</td>
+					<td>
+						<div class="my_note" id="note_english">
+							<input type='hidden' value='영어'/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="my_note" id="note_korean">
+							<input type='hidden' value='언어'/>
+						</div>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- 오답 노트 안 -->
+<div id="note_detail" class="page none">
+	<div id="div_logo" class="row">
+		<span class="back_to_main">
+			<img border="0" src="img/back_icon.png" style="margin-top: -1.8em;">
+		</span>
+		<img border="0" src="img/TeachTouch.png">
+		<span id="room_search">
+			<img border="0" src="img/icon_search.png">
+		</span>
+	</div>
+	<!-- <a class="btn btn-default sideview" data-toggle="popover" title="" data-content="1111">
+	popover</a> -->
+	<div class="auto-height2" style="background-color:#ffffd8;">
+		<div style="width:100%; text-align:right;">
+			<button id='write_note_button' data-toggle="modal" data-target="#oxModal"></button>
+			<button id='delete_note_button'></button>
+		</div>
+		<div class="note_content" style="background-color:rgb(255, 255, 216);">
+		
+		</div>
+	</div>
+	
+</div>
+
+<!-- 오답 노트 생성-->
+<div class="modal fade" id="oxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close note_register_close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">ox card</h4>
+      </div>
+      <div class="modal-body">
+        <div id='add_detail'>
+        	<span>
+				<input id='note_title' type='text' class='form-control' placeholder="제목"/>
+			</span>
+			<span>
+				<input id='note_lesson' type='text' class='form-control' placeholder="단원"/>
+			</span>
+			<span>
+				<input id='note_subject' type='text' class='form-control' readonly="readonly"/>
+			</span>
+			<span>
+				중요도:<span id="note_importance"></span>
+			</span>
+			
+			<span>
+				<button id='getQnA'>질문 가져오기</button><br><br>
+			</span>
+			
+				질문카드:<div id="qcard" contenteditable="true"></div><br/>
+			
+				답변카드:<div id="acard" contenteditable="true"></div><br/>
+			
+				몰랐던이유:<div id="note_not_known" contenteditable="true"></div><br/>
+			
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default note_register_close" data-dismiss="modal">닫기</button>
+        <button id="note_register" type="button" class="btn btn-primary" data-dismiss="modal">등록</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- 일반 에디터 -->
+<div id="g_editor">
+	<ul class="general_editor_header">
+		<li><input type="text" id="question_title" class="form-control" placeholder="제목" style="width:15em;"/></li>
+		<li><img id="add_question" border="0" src="img/answer.PNG"style="height:2.3em; width:2.3em;"></li>
+	</ul>
+	<div id="general_editor" contenteditable="true"></div>
+	<output id="list"></output>
+	<ul class="general_editor_menu">
+	 
+	  	<li>
+			<form action="/upload" method="post" enctype="multipart/form-data" style="display:block;">
+			    	
+			    	<label for="uploadImage">
+			    		<img src="img/editor_icon/picture_editor.png" />
+			    	</label>
+			  		<input type="file" id="files" name="uploadImage" style="display:none;" multiple />
+			    	
+			</form>
+		</li>
+		<li><a id="general_editor_btn"><img src="img/editor_icon/pencil_editor.png" /></a></li>
+	  	<li><a id="general_math_btn"><img src="img/editor_icon/math_editor.png" /></a></li>
+	  	<li><a id="general_english_btn"><img src="img/editor_icon/english_editor.png" /></a></li>
+	  	<li><a id="general_eraser_btn"><img src="img/editor_icon/eraser_editor.png" /></a></li>
+	</ul>
+</div>
+</div>
+ 
+
+  
+<!-- 영어 에디터 -->
+<div id="e_editor" class="none">
+	네이버에서 검색: <input type="text" id="search_value" style="width:123px;"/>
+	<input type="button" value="검색" onclick="search_word()"/>
+	<input type="button" value="완료" onclick="complete_word()"/>
+	<div>
+		<table border="0">
+			<tr>
+				<td width="240">
+					<div id="english_editor" contenteditable="true"></div>
+				</td>
+				<td>
+					<div id="search_window"></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<ul class="general_editor_menu">
+	  	
+	  	<!-- <li><a id="upload_camera" href="#"><img src="img/camera.png" /></a></li> -->
+	
+	  <li>
+			<form action="/upload" method="post" enctype="multipart/form-data" style="display:block;">
+		    	<!-- <input type="file" name="uploadFile"> -->
+		    	<!--<input type="file" name="uploadFile" accept="image/*;capture=camera"/> -->
+	    	
+		    	<label for="uploadImage">
+		    		<img src="img/editor_icon/picture_editor.png" />
+		    	</label>
+		  		<input type="file" id="uploadImage" name="uploadImage" style="display:none;" accept="image/*;capture=camera"/>
+		    	
+			</form>
+		</li>
+		<li><a id="general_editor_btn"><img src="img/editor_icon/pencil_editor.png" /></a></li>
+	  	<li><a id="general_math_btn"><img src="img/editor_icon/math_editor.png" /></a></li>
+	  	<li><a id="general_english_btn"><img src="img/editor_icon/english_editor.png" /></a></li>
+	  	<li><a id="general_eraser_btn"><img src="img/editor_icon/eraser_editor.png" /></a></li>
+	</ul>
+	
+</div>	
+<div class="black_overlay">
+</div>
+
+<div id="get_qna_list" class="none">
+	<span id='get_qna_close' style="position:absolute; top:0; right:0; z-index:3000; cursor:pointer; background-color:white; padding:0.5em;">X</span>
+	<div id="get_qna_list_content">
+
+	</div>
+</div>
+
+<div id="qna_search_div" class="page none" style="background-color:white;">
+	<span class="close">X</span>
+	<input type="text" class="form-control search"  id="search_text" placeholder="제목이나 글 내용으로 검색"/><br>
+	<span>검색</span>
+	<div id="search_content" class="search"></div>
+</div>
+
+<div id="mathModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close mathModal_close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Math Editor</h4>
+      </div>
+      <div id="math_editor" class="modal-body">
+      	<div class="usedMath" style="height:40px"></div>
+		<div id="math_content" class="math_editor">
+			<div id="editable-math" class="mathquill-editor"></div>
+		</div>
+		<div class="dial_content"></div><br/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default mathModal_close" data-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary math_send">저장</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+		
+</body>
+<script type="text/javascript" src="js/math_mathquill.js"></script>
+
+</html>

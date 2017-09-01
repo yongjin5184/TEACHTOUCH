@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.edu.hansung.dao.RequestDAO">
+	<resultMap type='requestVO' id='RequestResult'>
+		<id property='queryReqNo' column='query_req_no' />
+		<result property='mbNo' column='mb_no' />
+		<result property='groNo' column='gro_no' />
+		<result property='queryReqContent' column='query_req_content' />
+		<result property='queryReqSubject' column='query_req_subject' />
+		<result property='queryReqTitle' column='query_req_title' />
+		<result property='queryReqFile' column='query_req_file' />
+		<result property='queryReqHit' column='query_req_hit' />
+	</resultMap>
+	
+	<select id="getRequestVO" resultMap="RequestResult" parameterType='RequestVO'>
+		SELECT * FROM rtes_query_req where gro_no = #{groNo}
+	</select>
+	
+	<select id="selectRequestVO" resultMap="RequestResult" parameterType='RequestVO'>
+		SELECT * FROM rtes_query_req where mb_no = #{mbNo} and query_req_subject = #{queryReqSubject}
+	</select>
+	
+	<select id="findRequestVO" resultMap="RequestResult" parameterType='searchRequestVO'>
+		select * from rtes_query_req where gro_no = #{roomNum} and query_req_content like CONCAT('%',#{searchText},'%') 
+	</select>
+</mapper>

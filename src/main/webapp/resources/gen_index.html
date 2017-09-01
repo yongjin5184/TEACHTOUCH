@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/gen_index.css">
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
+
+</head>
+<body>
+<h1>General editor</h1>
+<div id="general_editor" contenteditable="true"></div>
+<ul class="general_editor_menu">
+  <li><a id="upload_file" href="#"><img src="img/fileupload.png" /></a></li>
+  <li><a id="upload_camera" href="#"><img src="img/camera.png" /></a></li>
+  <li><a id="upload_image" href="#"><img src="img/imageupload.png" /></a></li>
+  <li><a href="#"><img src="img/mathEditor.png" /></a></li>
+  <li><a href="#"><img src="img/englishEditor.png" /></a></li>
+</ul>
+<form id="upload" action="/upload" method="post" enctype="multipart/form-data">
+    <!-- <input type="file" name="uploadFile"> -->
+    <!--<input type="file" name="uploadFile" accept="image/*;capture=camera"/> -->
+    <input type="submit" name="Upload" />
+</form>
+<script>
+	$('#upload').hide();
+	 $('#upload_camera').bind('click', function(){
+		$('#upload').append('<input id="input_camera" type="file" name="uploadFile" accept="image/*;capture=camera"/>');
+		//alert('1');
+		$( "#input_camera" ).trigger( "click" );
+		//alert('2');
+		
+	}); 
+	
+</script>
+</body>
+</html>

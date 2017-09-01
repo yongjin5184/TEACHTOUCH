@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.edu.hansung.dao.ResponseDAO">
+	<resultMap type='responseVO' id='responseResult'>
+		<id property='queryResNo' column='query_req_no' />
+		<result property='queryReqNo' column='query_req_no' />
+		<result property='mbNo' column='mb_no' />
+		<result property='groNo' column='gro_no' />
+		<result property='queryResSubject' column='query_res_subject' />
+		<result property='queryResContent' column='query_res_content' />
+		<result property='queryResTitle' column='query_res_title' />
+		<result property='queryResFile' column='query_res_file' />
+		<result property='queryResRefer' column='query_res_refer' />
+		<result property='queryResDate' column='query_req_date' />
+		<result property='queryResSelected' column='query_req_selected' />
+		
+	</resultMap>
+	
+	<select id="getResponseVO" resultMap="responseResult" parameterType='responseVO'>
+		SELECT * FROM rtes_query_res where gro_no = 1 and query_req_no = #{queryReqNo}
+	</select>
+	
+	<select id="getResponseVOByReqNo" resultMap="responseResult" parameterType='int'>
+		SELECT * FROM rtes_query_res where query_req_no = #{queryReqNo}
+	</select>
+	
+	<insert id="insertAnswerVO" parameterType='responseVO'>
+		insert into rtes_query_res 
+		(query_req_no,gro_no,mb_no,query_res_subject,query_res_title,query_res_content,query_res_file,query_res_refer) 
+		values(#{queryReqNo},#{groNo},#{mbNo},#{queryResSubject},#{queryResTitle},#{queryResContent},#{queryResFile},#{queryResRefer})
+	</insert>
+</mapper>

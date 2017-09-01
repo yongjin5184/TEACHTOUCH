@@ -1,0 +1,169 @@
+
+html, body {
+	margin:0;
+	padding:0;
+
+}
+
+.row {
+	margin:0 auto;
+	width:30em;
+}
+
+#div_write {
+
+}
+
+#write_menu {
+	position:fixed;
+	top:1em;
+	left:-2px;
+
+	width:10em;
+	border:2px dotted black;
+
+	padding:0.5em;
+}
+
+#write_menu span {
+	cursor:pointer;
+}
+
+.div_qna_list {
+
+}
+
+.hidden {
+	display:none;
+}
+
+@media screen and (min-width:300px) and (max-width:580px) {
+
+	html, body {
+		margin:0;
+		padding:0;
+
+	}
+
+	.row {
+		margin:0 auto;
+		width:100%;
+	}
+
+	#div_logo {
+		margin:1em 0em;
+		cursor:pointer;
+	}
+
+	#tab_menu {
+		text-align: center;
+		cursor:pointer;
+		overflow: hidden;
+	}
+
+	#tab_menu ul {
+		list-style:none;
+		display:block;
+		margin:0;
+		padding:0;
+	}
+
+	#tab_menu ul li {
+		float:left;
+
+		border:0px solid black;
+
+		margin:0;
+		padding:1em 0em;
+		width:50%;
+
+	}
+
+	#tab_menu li:first-of-type {
+		background-color: #dfd;
+	}
+
+	#write_button {
+		margin:1em 0em;
+		text-align:center;
+		vertical-align: middle;
+
+		cursor:pointer;
+	}
+
+	#div_write {
+
+	}
+
+	.div_qna_list {
+		margin:1em 1em;
+		border:2px dashed black;
+	}
+
+	.question {
+		text-align:left;
+	}
+
+	.answer {
+		text-align:right;
+
+	}
+
+	.hidden {
+		display:none;
+	}
+
+	.qna_contents {
+		width:15em;
+		overflow:hidden;
+		white-space:nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.detail {
+		position:absolute;
+		bottom:0;
+		right:0;
+
+		cursor:pointer;
+		font-size:0.8em;
+	}
+
+	#upload_qna, #detail_question, #detail_qna{
+		display:none;
+		position:absolute;
+		z-index:1003;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		background:white;
+		border:5px solid black;
+
+		margin:1em 1em;
+
+	}
+
+	#black_overlay {
+		display:none;
+		position:absolute;
+		z-index:1002;
+		top:0;
+		width:100%;
+		min-height:100%;
+		height:100%;
+
+		background-color:#000000;
+		-moz-opacity:0.3;
+		opacity:0.3;
+	}
+
+	#close {
+		position:absolute;
+		right:0;
+		top:0;
+		cursor:pointer;
+	}
+
+
+}

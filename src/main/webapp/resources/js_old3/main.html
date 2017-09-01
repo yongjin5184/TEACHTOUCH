@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	
+	<script src="./js/jquery-1.11.1.min.js"></script>
+	<script src="./js/jquery.marquee.min.js"></script>
+	<script src="./js/objectStorage.js"></script>
+	<script src="./js/main.js"></script>
+	<script type="text/javascript">
+	
+		$(document).ready(function(){
+			//localStorage 에서 가져오기.
+			/* console.log(ObjectStorage.getItem("login").mbName);
+			console.log(ObjectStorage.getItem("login").mbAddr);
+			console.log(ObjectStorage.getItem("login").mbId); */
+			//console.log(ObjectStorage.getItem("login").mbPassword);
+			//로그인시 필요한 data
+			getBymbNo();
+			var $tab1 = $("#div_group_list");
+			var $tab2 = $("#div_my_page");
+
+			var $tabMenu1 = $("#tab_menu ul li:nth-of-type(1)");
+			var $tabMenu2 = $("#tab_menu ul li:nth-of-type(2)");
+
+			$tabMenu1.on('click', function() {
+				$tabMenu1.css("background", "#dfd");
+				$tabMenu2.css("background", "#fff");
+				$tab1.css("display", "block");
+				$tab2.css("display", "none");
+			});
+
+			$tabMenu2.on('click', function() {
+				$tabMenu1.css("background", "#fff");
+				$tabMenu2.css("background", "#fdf");
+				$tab1.css("display", "none");
+				$tab2.css("display", "block");
+			});
+
+			$(".note").on('click', function(){
+				alert("오답노트입니다.");
+			});
+
+			$(".room").on('click', function(){
+				var room_num = $(this).find(".room_num").val(); 
+				alert(room_num + "번 방입니다.");
+				//방에 따라 data 가져오기
+				var memberObj = {
+						'mbNo' : ObjectStorage.getItem("login").mbNo,
+						'groNo' : room_num
+				};
+				
+				$.ajax({
+					type : "post",
+					data : JSON.stringify(memberObj),
+					contentType : 'application/json',
+					dataType : 'json',
+					url : "../selectRequest.do",
+					success : function(data) {
+						console.log(data[0].queryReqHit);
+						alert(data[0].groNo);
+						location.href="room.html";
+					},
+					error : function(xhr) {
+						alert("에러에러");
+					}
+				});
+				
+			});
+
+			$(".add").on('click', function(){ 
+				alert("방을 추가합니다.");
+				location.href="addRoom.html";
+			});
+
+			$(".marquee").marquee({
+				duration:2000,
+				delayBeforeStart:0	
+			});
+			
+			function ontest(){
+				console.log("test");
+			}
+		});
+	</script>
+</head>
+
+<body>
+
+	<div id="main_logo" class="row">
+		<img border="0" src="img/logo_05.png">
+	</div>
+	<div id="tab_menu" class="row">
+		<ul>
+			<li>첫화면</li>
+			<li>내 정보</li>
+		</ul>
+	</div>
+
+	<div id="div_group" class="row">
+		<div>
+			그룹
+		</div>
+
+		<div id="div_group_list">
+
+			<table width="100%" border="0">
+				<tr>
+					<td width="50%">
+
+						<div class="div_group_cell note">
+						</div>
+
+					</td>
+
+					<td width="50%">
+						<div class="div_group_cell add">
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td width="50%">
+
+						<div class="div_group_cell room">
+							<input type="hidden" class="room_num" value="2"/>
+							<span class="room_img">
+								<img border="0" src="img/red_door.png"/>
+							</span>
+							<span class="room_title">
+								<span class="marquee">
+									방제목2
+								</span>
+							</span><br><br>
+							<!--
+							<span class="room_text marquee">
+								방 업데이트
+							</span>
+							-->
+						</div>
+					</td>
+
+					<td width="50%">
+
+						<div class="div_group_cell room">
+							<input type="hidden" class="room_num" value="1"/>
+							<span class="room_img">
+								<img border="0" src="img/green_door.png"/>
+							</span>
+							<span class="room_title">
+								<span class="marquee">
+									방제목길어져라
+								</span>
+							</span><br><br>
+							<!--
+							<span class="room_text marquee">
+								방 업데이트
+							</span>
+							-->
+						</div>
+					</td>
+			</table>
+		</div>
+	</div>
+
+	<div id="div_my_page" class="row">
+		
+		<div id="my_page">
+			내 정보
+		</div>
+	</div>
+</body>
+
+</html>

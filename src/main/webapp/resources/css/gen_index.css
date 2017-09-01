@@ -1,0 +1,48 @@
+#general_editor {
+    width:100%;
+    height:250px;
+	border:8px solid rgb(180, 110, 50);
+	border-bottom:12px solid rgb(180, 110, 50);
+	background-color:rgb(4, 90, 10);
+	
+	border-radius:10px;
+	padding:1em;
+	
+	color:white;
+}
+#general_editor img {
+background-color: white;
+}
+.general_editor_header{
+	list-style-type: none;
+    padding: 0;
+}
+
+.general_editor_header li{
+	 display: inline-block;
+}
+.general_editor_menu {
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.general_editor_menu li {
+    display: inline-block;
+    width:19%;
+    text-align:center;
+}
+.general_editor_menu li img {
+	width:3em;
+}
+
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+
+

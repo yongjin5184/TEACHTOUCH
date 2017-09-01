@@ -1,0 +1,773 @@
+@media screen and (max-width:640px) {
+	#desktop {
+		display: none;
+	}
+	
+	#mobile {
+		height:0;
+	}
+
+	/*
+	*		페이지 고유 아이디
+	*/
+
+	body {
+		overflow:hidden;
+	}
+	
+	.back_to_main {
+		position:absolute;
+		left:0;
+
+		margin-top:3em;
+
+	}
+		
+	#login {
+		z-index:10;
+
+		background-color:#ffffed;
+	}
+
+	#main {
+		z-index:1;
+
+		background-color:#ffffed;
+	}
+
+	#register {
+		z-index:11;
+		right:100%;
+		
+		background-repeat:no-repeat;
+		background-size:100% 110%;
+		background-position:-10px -40px;
+	}
+	
+	#check_in div {
+		margin:0.6em auto;
+	}
+
+	#note, #make_room, #room, #upload_qna, #note_detail {
+		z-index:2;
+		left:100%;
+		background-color:white;
+	}
+	
+	#note_detail {
+	
+		background-color:#ffffed;
+	}
+
+	/*
+	*		로그인
+	*/
+	#login_wrapper {
+		position:absolute;
+		width:100%;
+		height:100%;
+
+		text-align:center;
+	}
+
+	#login_wrapper img {
+		width:12em;
+		margin-bottom:1em;
+	}
+
+	#login_wrapper input, #login_wrapper button {
+		padding:0.5em;
+		width:16em;
+	}
+
+	/*
+	*		회원가입
+	*/
+
+	#register {
+		background-color:white;
+		height:100%;
+	}
+
+	#register_contents {
+		margin:2em auto;
+
+		text-align:center;
+	}
+
+	#register_contents button {
+		padding:0.5em;
+		width:17em;
+	}
+
+	/*
+	*		메인
+	*/
+
+	/*
+	*		상단 메뉴 바
+	*/
+	
+	.moveToRoomTop {
+		position: fixed;
+  		bottom: 0;
+  		left:0;
+  		right: 0;
+  		z-index : 2000;
+  		
+  		text-align:right; 
+	}
+	
+	#main_logo, #div_logo {
+		position:realtive;
+		margin:0;
+		padding:0;
+		text-align: center;
+	}
+
+	#main_logo img, #div_logo img{
+		height:5em;
+		margin:1em;
+	}
+	
+	#main_search,
+	#room_search {
+		position:absolute;
+		right:0;
+	}
+	
+	#main_search img,
+	#room_search img {
+		min-height:3em;
+		max-height:3em;
+	}
+
+	/*
+	*		메인 탭 메뉴
+	*/
+
+	#main_tab_menu {
+		text-align: center;
+		cursor:pointer;
+		overflow: hidden;
+	}
+
+	#main_tab_menu ul {
+		list-style:none;
+		display:block;
+		margin:0;
+		padding:0;
+	}
+
+	#main_tab_menu ul li {
+		float:left;
+
+		margin:0;
+		width:50%;
+		height:2.5em;
+		vertical-align: bottom;
+	}
+	
+	.main_tab_on {
+		border-top:1px solid black;
+		border-left:1px solid black;
+		border-right:1px solid black;
+		
+		border-radius:15px 15px 0px 0px;
+	}	
+
+	.main_tab_on > div {
+		padding:0.3em;
+		padding-top:0em;
+		border-top:0.5em solid #ffe061;
+		background-color:#ffe061;
+		border-radius:15px 15px 0px 0px;
+	}
+
+	.main_tab_off > div {
+		
+		padding:0.25em;
+		border-top:0.5em solid #ffffd8;
+		border-bottom:1px solid black;
+		border-left:0px solid black;
+		border-right:0px solid black;
+	}
+
+	/*
+	*		메인 내용 DIV
+	*/
+
+	#div_group_list td{
+		text-align:center;
+
+		padding:0.5em 0em;
+	}
+	
+	#div_group_list tr:not(:first-of-type) td > div {
+		border:1px solid #afafaf;
+		border-radius:15px;
+		overflow:hidden;
+	}
+	
+
+	#div_my_page {
+		display: none;
+
+		padding:0em;
+
+	}
+
+	.div_group_cell {
+		display:inline-block;
+		position:relative;
+
+		cursor:pointer;
+
+		text-align:left;
+
+	}
+
+	.room {		
+		padding:0.1em;
+	}
+
+	.room_bg {
+		min-width:7em;
+		max-width:7em;
+		min-height:8em;
+		max-height:8em;
+
+		background-image:url('../img/math.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+		
+		border-radius:15px;
+
+	}
+	
+	.answer_three_light img {
+	}
+	
+	/*
+	*		오답노트
+	*/
+
+	.note {
+		min-width:7.5em;
+		max-width:7.5em;
+		min-height:8em;
+		max-height:8em;
+
+		background-image:url('../img/ox.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+	
+	.note_detail_row {
+	}
+	
+	.note_detail_title {
+		padding:1em;
+		border-bottom:1px solid black;
+	}
+	
+	.note_detail_title_open {
+	}
+	
+	.note_detail_contents {
+		padding:1em;
+		border-bottom:1px solid black;
+	}
+
+	.add {
+		min-width:7.5em;
+		max-width:7.5em;
+		min-height:8em;
+		max-height:8em;
+		
+		background-image:url('../img/make_door.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+
+	#my_page {
+		padding:1em;
+	}
+
+	.room_title {
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:1.2em;
+
+		margin: auto;
+		padding:0.35em;
+
+		font-size:0.8em;
+
+		text-align:center;
+
+		background-color:rgba(255,255,255, 0.8);
+
+	}
+
+	.room_title > span {
+		display:inline-block;
+		padding:0;
+		margin-left:-0.3em;
+
+		min-width:7.8em;
+		max-width:7.8em;
+		min-height:1em;
+		max-height:1em;
+
+		overflow:hidden;
+		text-flow:ellipsis;
+	}
+
+	/*
+	*		방
+	*/
+
+	#div_logo {
+		margin:0;
+	}
+
+	#room_tab_menu {
+		text-align: center;
+		cursor:pointer;
+		overflow: hidden;
+	}
+
+	#room_tab_menu ul {
+		list-style:none;
+		display:block;
+		margin:0;
+		padding:0;
+	}
+
+	#room_tab_menu ul li {
+		float:left;
+
+		margin:0;
+		width:25%;
+		height:2.5em;
+		vertical-align: bottom;
+	}
+
+	.room_tab_on {
+		border-top:1px solid black;
+		border-left:1px solid black;
+		border-right:1px solid black;
+		
+		border-radius:10px 10px 0px 0px;
+	}
+
+	.room_tab_on > div {
+		padding:0.3em;
+		padding-top:0em;
+		border-top:0.5em solid #68c0e8;
+		background-color:#68c0e8;
+		border-radius:10px 10px 0px 0px;
+		
+		font-weight:bold;
+		color:white;
+		
+		text-shadow: 0px 0px 5px black;
+	}
+
+	.room_tab_off > div {
+		padding:0.25em;
+		border-top:0.5em solid #e2fdff;
+		border-bottom:1px solid black;
+		border-left:0px solid black;
+		border-right:0px solid black;
+	}
+	
+	.open_answer {
+		position:absolute;
+		right:3em;
+		
+		cursor:pointer;
+	}
+
+	/*
+	*		방 내용
+	*/
+	
+	
+	#div_qna, #div_q, #div_ppt, #div_myq {
+		padding:1em;
+	}
+	
+	#div_q {
+	}
+
+	/*
+	*		글쓰기
+	*/
+
+	#write_button {
+		margin:1em 0em;
+		text-align:center;
+		vertical-align: middle;
+
+		cursor:pointer;
+	}
+
+	#div_write {
+
+	}
+
+	/*
+	*		Q & A 리스트
+	*/
+
+	.question , .answer {
+		position:relative;
+		margin:2em auto;
+
+		box-shadow:3px 3px 3px #777;	
+		border-radius:15px;	
+	}
+	.question {
+		margin-top:3em;
+		border:1px solid rgb(222, 219, 4);
+	}
+	.answer {
+	
+		margin-top:4em;
+		border:1px solid rgb(13, 217, 200);
+	}
+
+	.question table, .answer table{
+		position:relative;
+		z-index:5;
+
+		font-size:15px;
+		border-radius:15px;
+	}
+	
+	.question > table {
+		background-color:rgba(255, 255, 153, 0.8);
+	}
+	
+	.answer > table {
+		background-color:rgba(105, 217, 212, 0.8);
+	}
+
+	.question_logo, .answer_logo {
+		position:absolute;
+		top:-1.65em;
+
+		padding:0.1em 0.7em;
+
+		z-index:1;
+
+		color:white;
+		border-radius:5px 5px 0px 0px;
+		font-weight:bolder;
+		text-shadow:0px 0px 2px black;
+		font-size:1.5em;
+	}
+	.question_logo {
+		left:1em;
+		background-color:rgba(222, 219, 4, 0.9);
+	}
+	.answer_logo {
+		right:1em;
+		background-color:rgba(13, 217, 200, 0.9);
+	}
+
+	/*
+	*		Q & A 작성자 사진 및 이름
+	*/
+	.question_namecard, .answer_namecard {
+		padding:0.5em;
+	}
+	.question_namecard table, .answer_namecard table {
+		border-spacing:0.5em;
+		width:100%;
+	}
+	.question_namecard table td, .answer_namecard table td {
+		background-color:white;
+	}
+	.question_namecard table {
+		background-color:rgb(229, 66, 124);
+	}
+	.answer_namecard table {
+		background-color:rgb(67, 129, 255);
+	}
+
+	/*
+	*		Q & A 글 제목, 질문 및 답변 내용
+	*/
+
+	.qna_title, .qna_contents {
+		background-color:#eee;
+		padding:0.2em;
+		margin:0.3em auto;
+
+		width:95%;
+	}
+
+	.qna_contents {
+
+		display:-webkit-box;
+		-webkit-line-clamp:2;
+		-webkit-box-orient:vertical;
+		word-wrap:break-word;
+
+		height:3em;
+		overflow:hidden;
+		text-overflow: ellipsis;
+
+		line-height:155%;		
+	}
+
+	.detail {
+		cursor:pointer;
+	}
+/*
+	#upload_qna, #detail_question, #detail_qna{
+		display:none;
+		position:absolute;
+		z-index:1003;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		background:white;
+		border:5px solid black;
+
+		margin:1em 1em;
+
+	}*/
+
+	.answer_button {
+		cursor:pointer;
+	}
+
+	.answer_like {
+		color:blue;
+		font-size:1.5em;
+		font-weight:bold;
+	}
+
+
+	/*
+	*		오답노트
+	*/
+
+	#note_list_background {
+
+		margin:0 auto;
+
+		min-width:360px;
+		max-width:360px;
+		min-height:415px;
+		max-height:415px;
+
+		background-image:url("../img/Bookshelf.png");
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+
+		border:1px solid rgba(0, 0, 0, 0);
+
+	}
+
+	#note_list_background table {
+		margin:0 auto;
+		margin-top:1em;
+		width:240px;
+		height:415px;
+
+		text-align:center;
+	}
+
+	#note_list_background table td {
+		width:50%;
+		height:33%;
+	}
+
+	#note_list_background table td div {
+		margin:0 auto;
+		width:6.5em;
+		height:7.5em;
+		padding:1.5em 0.2em;
+		
+		cursor:pointer;
+	}
+	
+	#note_list_background table tr:nth-of-type(2) td div {
+		margin-bottom:1em;
+	}
+
+	.my_note {
+		
+	}
+	
+	#note_math {
+		background-image:url('../img/math.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+	
+	#note_english {
+		background-image:url('../img/eng.PNG');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+	
+	#note_korean {
+		background-image:url('../img/korean.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+	
+	#write_note_button {
+		background-image:url('../img/icon_write.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+		background-color: rgb(255,255,216);
+		border:0px solid black;
+		width:3em;
+		height:3em;
+	}
+	
+	#delete_note_button {
+		background-image:url('../img/icon_delete.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+		background-color: rgb(255,255,216);
+		border:0px solid black;
+		width:3em;
+		height:3em;
+	}
+	
+	#oxModal {
+		z-index:1500;
+	}
+	
+	#get_qna_list {
+		position:relative;
+		margin:0;
+		padding:0;
+		width:100%;
+		height:100%;
+	}
+	
+	#get_qna_list_content {
+		position:absolute;
+		margin:0;
+		padding:0;
+		top:0;
+		left:0;
+		
+		width:100%;
+		height:15em;
+		
+		z-index:2502;
+		background-color:white;
+		
+		overflow:auto;
+	}
+	#get_qna_list_content span.get_q_title {
+		display:inline-block;
+		position:relative;
+		width:100%;
+		padding:1em;
+		border-bottom:1px solid black;
+	}
+	
+	#get_qna_list_content span.get_a_title {
+		position:relative;
+		width:100%;
+		padding:1em;
+		border-bottom:1px solid black;
+	
+	}
+	
+	.get_q_a {
+		display:inline-block;
+		position:absolute;
+		right:2em;
+	}
+	
+	.title_button{
+		display:inline-block;
+		position:absolute;
+		right:2em;
+	}
+	
+	#qna_search_div {
+		z-index:3;
+	}
+	
+	/*
+	*		방만들기
+	*/
+	
+	#div_make_room table{
+		text-align:left;
+	}	
+	#div_make_room table img {
+		display:block;
+		margin:0 auto;
+	}
+	
+	#add_detail > span {
+		display:inline-block;
+		width:12em;
+		margin:0.2em auto;
+		margin-left:-1em;
+		
+		text-align:center;
+	}
+	
+	#add_detail select {
+		width:100%;
+	}
+	
+	.icon_select {
+		
+	}
+	
+	#div_ppt textarea{
+		width:100%;
+		height:6.5em;
+		background-color:rgba(255,255,255, 0.5);
+	}
+	#div_ppt input {
+		width:100%;
+	}
+	
+	#chatroom fieldset {
+		position:fixed;
+		height:12em;
+		
+		left:0;
+		right:0;
+		bottom:0;
+		
+		background-color:rgba(255,255,255, 0.5);
+		
+		vertical-align:bottom;
+	}
+	
+	#chatroom_legend {
+		padding-top:2em;
+		margin-bottom:0;
+		font-size:1em;
+	}
+	
+}

@@ -1,0 +1,113 @@
+@media screen and (min-width:300px) and (max-width:720px) {
+	html, body {
+		margin:0;
+		padding:0;
+
+		height:100%;
+		
+		overflow-y:scroll;
+
+		background-image:url('../img/background.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
+	}
+
+	#login_wrapper {
+		position:absolute;
+		top:0; bottom:0;
+		left:0; right:0;
+
+		margin:auto;
+		padding:1em;
+
+		width:21em;
+		height:15.2em;
+
+		border:0px solid black;
+		text-align:center;
+		vertical-align: middle;
+
+		background-image:url("../img/real_edu.png");
+		background-size:cover;
+	}
+
+	#index_login {
+		position:absolute;
+		bottom:1em;
+		left:0; right:0;
+	}
+
+	#index_login > table {
+		margin:0 auto;
+		padding:0;
+
+		border-spacing: 0px;
+	}
+
+	#index_login > table #login_button {
+		background-color:transparent;
+		background-image:url("../img/login_button.png");
+		background-size:cover;
+
+		margin-top:0.1em;
+		width:4.5em;
+		height:3.7em;
+
+		border:0px solid black;
+	}
+	#index_login > table #signup_button {
+		background-color:transparent;
+		background-image:url("../img/signup_button.png");
+		background-size:cover;
+
+		width:10.5em;
+		height:2em;
+
+		border:0px solid black;
+		margin:0.5em 0;
+	}
+	#index_login > table input[type='text'],
+	#index_login > table input[type='password'] {
+		background-color:rgb(216, 239, 243);
+
+		padding:0.1em;
+		border:2px solid rgb(34, 142, 162);
+	}
+
+	#sign_up{
+		display:none;
+		position:absolute;
+		z-index:1003;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		background:white;
+		border:5px solid black;
+
+		margin:1em 1em;
+
+	}
+
+	#black_overlay {
+		display:none;
+		position:absolute;
+		z-index:1002;
+		width:100%;
+		min-height:100%;
+		height:100%;
+
+		background-color:#000000;
+		-moz-opacity:0.3;
+		opacity:0.3;
+	}
+
+	#close {
+		position:absolute;
+		right:0;
+		top:0;
+		cursor:pointer;
+	}
+}

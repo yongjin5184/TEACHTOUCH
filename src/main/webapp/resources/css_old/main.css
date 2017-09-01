@@ -1,0 +1,165 @@
+@media screen and (min-width:300px) and (max-width:720px) {
+	html, body {
+		margin:0;
+		padding:0;
+
+	}
+
+	.row {
+		width:100%;
+		margin:0 auto;
+	}
+
+	#main_logo {
+		margin:0;
+		padding:0;
+		text-align: center;
+	}
+
+	#main_logo img{
+		height:5em;
+		margin:0;
+	}
+
+	#tab_menu {
+		text-align: center;
+		cursor:pointer;
+		overflow: hidden;
+	}
+
+	#tab_menu ul {
+		list-style:none;
+		display:block;
+		margin:0;
+		padding:0;
+	}
+
+	#tab_menu ul li {
+		float:left;
+
+		border:0px solid black;
+
+		margin:0;
+		padding:1em 0em;
+		width:50%;
+
+	}
+
+	#tab_menu li:first-of-type {
+		background-color: #dfd;
+	}
+
+	#div_group_list td{
+		text-align:center;
+
+		padding:0.5em 0em;
+	}
+
+	#div_my_page {
+		display: none;
+
+		padding:0em;
+
+	}
+
+	.div_group_cell {
+		display:inline-block;
+		position:relative;
+
+		cursor:pointer;
+
+		text-align:left;
+
+	}
+
+	.room {		
+		min-width:10em;
+		max-width:10em;
+		min-height:10em;
+		max-height:10em;
+
+		background-image:url('../img/blue_door.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+
+	.note {
+		min-width:8em;
+		max-width:8em;
+		min-height:10em;
+		max-height:10em;
+
+		background-image:url('../img/ox_door.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+
+	.add {
+		min-width:8em;
+		max-width:8em;
+		min-height:10em;
+		max-height:10em;
+		
+		background-image:url('../img/make_door2.png');
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position:center;
+	}
+
+	#my_page {
+		padding:1em;
+	}
+
+	.room_img {
+		position:absolute;
+		left:0;
+		right:0;
+		top:2.45em;
+
+		margin:auto;
+		text-align:center;
+
+	}
+
+	.room_img > img {
+		padding:0;
+		margin:0;
+
+		margin-left:0.3em;
+
+		max-width:4.5em;
+		min-width:4.5em;
+		max-height:4em;
+		min-height:4em;
+	}
+
+	.room_title {
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:1.65em;
+
+		margin: auto;
+
+		font-size:0.8em;
+
+		text-align:center;
+	}
+
+	.room_title > span {
+		display:inline-block;
+		padding:0;
+		margin-left:0.3em;
+
+		min-width:4em;
+		max-width:4em;
+		min-width:1em;
+		max-height:1em;
+
+		overflow:hidden;
+		text-flow:ellipsis;
+	}
+
+}

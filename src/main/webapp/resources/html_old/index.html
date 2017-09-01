@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./resources/css/index.css">
+	<script src="./resources/js/jquery-1.11.1.min.js"></script>
+	<script src="./resources/js/objectStorage.js"></script>
+	<script src="./resources/js/main.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$("#signup_button").on('click', function() {
+				$("#black_overlay").show();
+				$("#sign_up").show();
+			});
+
+			$("#close").on('click', function() {
+				$("#black_overlay").hide();
+				$("#sign_up").hide();
+
+			});
+		});
+		function doLogin() {
+			var login_id = $("#login_id").val();
+			var login_password = $("#login_password").val();
+			var memberObj = {
+				'mbId' : login_id,
+				'mbPassword' : login_password
+			};
+
+			$.ajax({
+				type : "POST",
+				data : JSON.stringify(memberObj),
+				dataType:'json',
+				contentType : 'application/json',
+				url : "./getByIdMember.do",
+				success : function(data) {
+					console.log(data.mbName);
+					ObjectStorage.setItem("login", data);
+					alert("");
+					location.href = './resources/main.html';
+				},
+				error : function(xhr) {
+					alert("에러에러");
+				}
+			});
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<div id="login_wrapper">
+
+		<div id="index_login">
+			<table>
+				<tr>
+					<td><input id="login_id"  type="text" placeholder="ID"/></td>
+					<td rowspan="2"><button onclick="doLogin()" id="login_button"></button></td>
+				</tr>
+				<tr>
+					<td><input id="login_password"  type="password" placeholder="PW"/></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button id="signup_button"></button></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<div id="sign_up" class="popup">
+		<div id="close">
+			X
+		</div>
+		회원가입<br>
+		id : <input type="text" id="checkIn_id" name="id"/><br>
+		PW : <input type="password" id="checkIn_password" name="pw" /><br>
+		Name : <input type="text" id="checkIn_name" name="name"/><br>
+		직업 : <input type="text" id="checkIn_job" name="job"/><br>
+		이메일 : <input type="text" id="checkIn_email" name="email"/><br>
+		Phone : <input type="text" id="checkIn_phone" name="phone"/><br>
+		주소 : <input type="text" id="checkIn_addr" name="address"/><br>
+		<button onclick="completeLogIn()">회원가입</button>
+	</div>
+	<div id="black_overlay">
+	</div>
+</body>
+
+</html>

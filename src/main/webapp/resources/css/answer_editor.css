@@ -1,0 +1,50 @@
+.answer_editor_menu {
+	position:fixed;
+	bottom:6.5em;
+	left:0;
+	right:0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.answer_editor_menu li {
+    display: inline-block;
+    width:19%;
+    text-align:center;
+}
+.answer_editor_menu li img {
+	height:2em;
+}
+.answer_editor_header{
+	list-style-type: none;
+    padding: 0;
+}
+
+.answer_editor_header li{
+	 display: inline-block;
+}
+.detail_editor_menu {
+	position:fixed;
+	bottom:6.5em;
+	left:0;
+	right:0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.detail_editor_menu li {
+    display: inline-block;
+    width:19%;
+    text-align:center;
+}
+.detail_editor_menu li img {
+	height:2em;
+}
+.detail_editor_header{
+	list-style-type: none;
+    padding: 0;
+}
+
+.detail_editor_header li{
+	 display: inline-block;
+}

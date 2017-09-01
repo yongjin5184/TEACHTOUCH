@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/eng_index.css">
+<!--
+<style type="text/css">
+#english_editor {position: relative; left: 10px; top: 120px ; z-index : 2} 
+#search_window {position: absolute; left: 15px; top: 200px ; z-index : 3}
+
+</style>
+-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
+<script src="js/eng_index.js"></script>
+</head>
+<body>
+	<div id="english_editor" contenteditable="true">
+	</div>
+		<div id="search_window"></div><br/>
+	네이버에서 검색: <input type="text" id="search_value"/>
+	<input type="button" value="검색" onclick="search_word()"/>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.edu.hansung.dao.JoinGroupDAO">
+	<resultMap type='JoinGroupVO' id='JoinGroupResult'>
+		<result property='groNo' column='gro_no' />
+		<result property='mbNo' column='mb_no' />
+		<result property='joinDate' column='join_date'/>
+		<result property='groMaster' column='gro_master' />
+		<result property='groName' column='gro_name' />
+		<result property='groSubject' column='gro_subject' />
+		<result property='groGrade' column='gro_grade' />
+		<result property='groDate' column='gro_date' />
+		<result property='groImg' column='gro_img' />
+		<result property='groColor' column='gro_color' />
+	</resultMap>
+	<select id="getBymbNo" resultMap="JoinGroupResult" parameterType="MemberVO">
+		SELECT g.gro_no,jg.mb_no,join_date,gro_master,gro_name,gro_subject,gro_grade,gro_date,gro_img,gro_color 
+		FROM rtes_join_group jg join rtes_member m on jg.mb_no = m.mb_no join rtes_group g on g.gro_no = jg.gro_no 
+		WHERE m.mb_no = #{mbNo};
+	</select>
+	<insert id="insertJoinGroup" parameterType='JoinGroupVO'>
+		insert into rtes_join_group 
+		(mb_no, gro_no)
+		values(#{mbNo},#{groNo});
+	</insert>
+</mapper>
